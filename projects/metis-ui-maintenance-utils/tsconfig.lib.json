@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "target": "es6",
+    "declaration": true,
+    "inlineSources": true,
+    "types": ["jasmine"],
+
+    "lib": [
+      "dom",
+      "es2018"
+    ]
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}

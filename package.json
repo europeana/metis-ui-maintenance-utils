@@ -1,0 +1,49 @@
+{
+  "name": "@europeana/metis-ui-maintenance-utils",
+  "version": "0.0.1",
+  "files": [
+    "dist/metis-ui-maintenance-utils/**"
+  ],
+  "homepage": "https://github.com/europeana/metis-ui-maintenance-utils.git",
+  "main": "dist/metis-ui-maintenance-utils",
+  "types": "dist/metis-ui-maintenance-utils/index.d.ts",
+  "scripts": {
+    "ng": "ng",
+    "build": "rm -rf ./dist && ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "publish-lib": "npm publish --access=public"
+  },
+  "private": false,
+  "dependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/compiler": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/platform-browser": "^14.2.0",
+    "@angular/platform-browser-dynamic": "^14.2.0",
+    "@europeana/metis-ui-test-utils": "0.0.1",
+    "@types/jasmine": "^3.10.2",
+    "rxjs": "^7.5.5",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.1",
+    "@angular/cli": "^14.2.1",
+    "@angular/compiler-cli": "^14.2.0",
+    "@types/jasmine": "^3.10.2",
+    "@types/node": "^12.20.37",
+    "jasmine": "^5.1.0",
+    "jasmine-core": "~3.8.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^14.2.0",
+    "typescript": "4.7.4"
+  },
+  "peerDependencies": {
+    "jasmine": "^5.1.0"
+  }
+}
