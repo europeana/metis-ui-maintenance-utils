@@ -10,17 +10,17 @@ describe('MaintenanceInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MaintenanceInterceptor],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     }).compileComponents();
     interceptor = TestBed.inject(MaintenanceInterceptor);
   });
 
   const getHandler = (): HttpHandler => {
-    return ({
+    return {
       handle: () => {
         return of({ status: 200 });
-      }
-    } as unknown) as HttpHandler;
+      },
+    } as unknown as HttpHandler;
   };
 
   it('should allow traffic', () => {
@@ -36,8 +36,10 @@ describe('MaintenanceInterceptor', () => {
   it('should intercept', () => {
     const handler = getHandler();
     spyOn(handler, 'handle').and.callThrough();
-    interceptor.settings.remoteEnv.maintenanceMessage = 'down';
-    const sub = interceptor.intercept(new HttpRequest('GET', '/'), handler).subscribe();
+    interceptor.settings.maintenanceItem.maintenanceMessage = 'down';
+    const sub = interceptor
+      .intercept(new HttpRequest('GET', '/'), handler)
+      .subscribe();
     expect(handler.handle).not.toHaveBeenCalled();
     sub.unsubscribe();
   });

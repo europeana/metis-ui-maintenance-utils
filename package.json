@@ -1,6 +1,6 @@
 {
   "name": "@europeana/metis-ui-maintenance-utils",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "files": [
     "dist/metis-ui-maintenance-utils/**"
   ],
@@ -12,7 +12,9 @@
     "build": "rm -rf ./dist && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "publish-lib": "npm publish --access=public"
+    "publish-lib": "npm publish --access=public",
+    "prettier": "prettier --write './**/*.{ts,html}'",
+    "prettier:ci": "prettier --list-different './**/*.{ts,html}'"
   },
   "private": false,
   "dependencies": {
@@ -23,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@europeana/metis-ui-test-utils": "0.0.1",
     "@types/jasmine": "^3.10.2",
+    "prettier": "^3.0.3",
     "rxjs": "^7.5.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

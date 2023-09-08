@@ -5,5 +5,5 @@ import { MaintenanceInterceptor } from './maintenance.interceptor';
 export const MaintenanceInterceptorProvider: Provider = {
   provide: HTTP_INTERCEPTORS,
   useClass: MaintenanceInterceptor,
-  multi: true
+  multi: true,
 };
