@@ -16,14 +16,13 @@ describe('MaintenanceScheduleService', () => {
   let mockHttp: MockHttp;
   let service: MaintenanceScheduleService;
 
-  const key: MaintenanceScheduleItemKey = 'sandbox-ui-test';
+  const key = MaintenanceScheduleItemKey.SANDBOX_UI_TEST;
 
   const getMockResult = (msg: string, date?: Date): MaintenanceSchedule => {
-    const res = {
-      'sandbox-ui-test': {
-        maintenanceMessage: msg,
-      },
-    } as MaintenanceSchedule;
+    const res = {} as MaintenanceSchedule;
+    res[key] = {
+      maintenanceMessage: msg
+    };
     if (date) {
       res[key].period = {
         from: date.toISOString(),
