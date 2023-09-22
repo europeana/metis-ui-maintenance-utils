@@ -23,7 +23,7 @@ export interface MaintenanceItem {
 
 export type MaintenanceSchedule = {
   [key in MaintenanceScheduleItemKey]: MaintenanceItem;
-}
+};
 
 export interface MaintenanceSettings {
   pollInterval: number;

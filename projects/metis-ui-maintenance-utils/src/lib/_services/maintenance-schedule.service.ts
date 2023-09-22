@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of, switchMap, timer } from 'rxjs';
 import {
   MaintenanceSettings,
@@ -11,13 +11,16 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class MaintenanceScheduleService {
+  private readonly http: HttpClient;
   settings: MaintenanceSettings;
 
   setApiSettings(settings: MaintenanceSettings): void {
     this.settings = settings;
   }
 
-  constructor(private readonly http: HttpClient) {}
+  constructor() {
+    this.http = inject(HttpClient);
+  }
 
   /**
   /* periodIsNow

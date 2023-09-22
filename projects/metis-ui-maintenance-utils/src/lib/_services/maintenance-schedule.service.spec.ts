@@ -21,7 +21,7 @@ describe('MaintenanceScheduleService', () => {
   const getMockResult = (msg: string, date?: Date): MaintenanceSchedule => {
     const res = {} as MaintenanceSchedule;
     res[key] = {
-      maintenanceMessage: msg
+      maintenanceMessage: msg,
     };
     if (date) {
       res[key].period = {
