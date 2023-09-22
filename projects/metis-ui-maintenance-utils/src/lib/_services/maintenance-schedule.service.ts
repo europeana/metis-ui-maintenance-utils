@@ -14,12 +14,12 @@ export class MaintenanceScheduleService {
   private readonly http: HttpClient;
   settings: MaintenanceSettings;
 
-  setApiSettings(settings: MaintenanceSettings): void {
-    this.settings = settings;
-  }
-
   constructor() {
     this.http = inject(HttpClient);
+  }
+
+  setApiSettings(settings: MaintenanceSettings): void {
+    this.settings = settings;
   }
 
   /**
@@ -54,16 +54,18 @@ export class MaintenanceScheduleService {
         return schedule[dataKey];
       }),
       map((item: MaintenanceItem) => {
-        if (item.period && !this.periodIsNow(item.period)) {
+        if (item && item.period && !this.periodIsNow(item.period)) {
           this.settings.maintenanceItem.maintenanceMessage = '';
           return undefined;
         }
         // flag interception via global settings
-        this.settings.maintenanceItem.maintenanceMessage =
-          item.maintenanceMessage as string;
+        this.settings.maintenanceItem.maintenanceMessage = item
+          ? (item.maintenanceMessage as string)
+          : undefined;
         return item;
       }),
-      catchError(() => {
+      catchError((e: Error) => {
+        console.log(e);
         return of(undefined);
       }),
     );

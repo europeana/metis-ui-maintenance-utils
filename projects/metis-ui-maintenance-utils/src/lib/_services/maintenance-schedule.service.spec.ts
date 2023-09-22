@@ -10,6 +10,7 @@ import {
   MaintenanceItem,
   MaintenanceScheduleItemKey,
 } from '../_models/maintenance';
+
 import { MaintenanceScheduleService } from './maintenance-schedule.service';
 
 describe('MaintenanceScheduleService', () => {
@@ -17,9 +18,8 @@ describe('MaintenanceScheduleService', () => {
   let service: MaintenanceScheduleService;
 
   const key = MaintenanceScheduleItemKey.SANDBOX_UI_TEST;
-
   const getMockResult = (msg: string, date?: Date): MaintenanceSchedule => {
-    const res = {} as MaintenanceSchedule;
+    const res = {} as unknown as MaintenanceSchedule;
     res[key] = {
       maintenanceMessage: msg,
     };

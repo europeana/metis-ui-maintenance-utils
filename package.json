@@ -1,6 +1,6 @@
 {
-  "name": "metis-ui-maintenance-utils",
-  "version": "0.0.12",
+  "name": "@europeana/metis-ui-maintenance-utils",
+  "version": "0.0.5",
   "files": [
     "dist/metis-ui-maintenance-utils/**"
   ],
