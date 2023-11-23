@@ -7,7 +7,7 @@ export enum MaintenanceScheduleItemKey {
   SANDBOX_UI_PRODUCTION = 'sandbox-ui-production',
   STATISTICS_DASHBOARD_TEST = 'statistics-dashboard-test',
   STATISTICS_DASHBOARD_ACCEPTANCE = 'statistics-dashboard-acceptance',
-  STATISTICS_DASHBOARD_PRODUCTION = 'statistics-dashboard-production',
+  STATISTICS_DASHBOARD_PRODUCTION = 'statistics-dashboard-production'
 }
 
 export interface MaintenancePeriod {

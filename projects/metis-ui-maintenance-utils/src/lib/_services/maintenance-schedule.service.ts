@@ -6,7 +6,7 @@ import {
   MaintenancePeriod,
   MaintenanceSchedule,
   MaintenanceScheduleItemKey,
-  MaintenanceSettings,
+  MaintenanceSettings
 } from '../_models/maintenance';
 
 @Injectable({ providedIn: 'root' })
@@ -67,7 +67,7 @@ export class MaintenanceScheduleService {
       catchError((e: Error) => {
         console.log(e);
         return of(undefined);
-      }),
+      })
     );
   }
 }

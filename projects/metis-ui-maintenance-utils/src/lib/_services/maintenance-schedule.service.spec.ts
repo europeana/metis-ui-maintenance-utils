@@ -1,6 +1,6 @@
 import {
   HttpClientTestingModule,
-  HttpTestingController,
+  HttpTestingController
 } from '@angular/common/http/testing';
 import { async, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { MockHttp } from '@europeana/metis-ui-test-utils';
@@ -8,7 +8,7 @@ import {
   MaintenanceItem,
   MaintenanceSchedule,
   MaintenanceScheduleItemKey,
-  MaintenanceSettings,
+  MaintenanceSettings
 } from '../_models/maintenance';
 
 import { MaintenanceScheduleService } from './maintenance-schedule.service';
@@ -21,12 +21,12 @@ describe('MaintenanceScheduleService', () => {
   const getMockResult = (msg: string, date?: Date): MaintenanceSchedule => {
     const res = {} as unknown as MaintenanceSchedule;
     res[key] = {
-      maintenanceMessage: msg,
+      maintenanceMessage: msg
     };
     if (date) {
       res[key].period = {
         from: date.toISOString(),
-        to: new Date(date.getTime() + 1000).toISOString(),
+        to: new Date(date.getTime() + 1000).toISOString()
       };
     }
     return res;
@@ -37,16 +37,16 @@ describe('MaintenanceScheduleService', () => {
       pollInterval: 10,
       maintenanceScheduleKey: key,
       maintenanceItem: {
-        maintenanceMessage: 'xxx',
+        maintenanceMessage: 'xxx'
       },
-      maintenanceScheduleUrl: 'http://xxx',
+      maintenanceScheduleUrl: 'http://xxx'
     };
   };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [MaintenanceScheduleService],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule]
     }).compileComponents();
     mockHttp = new MockHttp(TestBed.inject(HttpTestingController), '');
     service = TestBed.inject(MaintenanceScheduleService);
