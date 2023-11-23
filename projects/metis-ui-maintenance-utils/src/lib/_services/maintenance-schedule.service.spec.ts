@@ -5,10 +5,10 @@ import {
 import { async, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { MockHttp } from '@europeana/metis-ui-test-utils';
 import {
-  MaintenanceSettings,
-  MaintenanceSchedule,
   MaintenanceItem,
+  MaintenanceSchedule,
   MaintenanceScheduleItemKey,
+  MaintenanceSettings,
 } from '../_models/maintenance';
 
 import { MaintenanceScheduleService } from './maintenance-schedule.service';

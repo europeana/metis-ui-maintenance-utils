@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of, switchMap, timer } from 'rxjs';
 import {
-  MaintenanceSettings,
-  MaintenanceSchedule,
   MaintenanceItem,
-  MaintenanceScheduleItemKey,
   MaintenancePeriod,
+  MaintenanceSchedule,
+  MaintenanceScheduleItemKey,
+  MaintenanceSettings,
 } from '../_models/maintenance';
 
 @Injectable({ providedIn: 'root' })

@@ -1,4 +1,3 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
 import {
   HttpEvent,
   HttpHandlerFn,
@@ -6,17 +5,15 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { NEVER, Observable } from 'rxjs';
-import {
-  MaintenanceItem,
-  MaintenanceSettings,
-  MaintenanceScheduleItemKey,
-} from '../_models/maintenance';
+import { MaintenanceItem } from '../_models/maintenance';
 
-export const maintenanceInterceptor = (config: MaintenanceItem) => {
+export const maintenanceInterceptor = (
+  config: MaintenanceItem,
+): HttpInterceptorFn => {
   const interceptor: HttpInterceptorFn = (
     req: HttpRequest<unknown>,
     next: HttpHandlerFn,
-  ) => {
+  ): Observable<HttpEvent<unknown>> => {
     if (
       config.maintenanceMessage &&
       config.maintenanceMessage.length &&
