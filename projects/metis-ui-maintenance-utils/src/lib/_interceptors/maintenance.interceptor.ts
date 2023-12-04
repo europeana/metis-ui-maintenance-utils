@@ -15,8 +15,7 @@ export const maintenanceInterceptor = (
     next: HttpHandlerFn
   ): Observable<HttpEvent<unknown>> => {
     if (
-      config.maintenanceMessage &&
-      config.maintenanceMessage.length &&
+      config.maintenanceMessage?.length &&
       req.url !== config.maintenanceScheduleUrl
     ) {
       return NEVER;

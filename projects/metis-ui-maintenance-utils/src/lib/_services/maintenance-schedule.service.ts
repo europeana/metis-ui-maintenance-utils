@@ -5,7 +5,6 @@ import {
   MaintenanceItem,
   MaintenancePeriod,
   MaintenanceSchedule,
-  MaintenanceScheduleItemKey,
   MaintenanceSettings
 } from '../_models/maintenance';
 
@@ -40,8 +39,7 @@ export class MaintenanceScheduleService {
   **/
   loadMaintenanceItem(): Observable<MaintenanceItem | undefined> {
     const url = this.settings.maintenanceScheduleUrl;
-    const dataKey = this.settings
-      .maintenanceScheduleKey as MaintenanceScheduleItemKey;
+    const dataKey = this.settings.maintenanceScheduleKey;
 
     if (!(url && dataKey)) {
       return of(undefined);
@@ -54,7 +52,7 @@ export class MaintenanceScheduleService {
         return schedule[dataKey];
       }),
       map((item: MaintenanceItem) => {
-        if (item && item.period && !this.periodIsNow(item.period)) {
+        if (item?.period && !this.periodIsNow(item.period)) {
           this.settings.maintenanceItem.maintenanceMessage = '';
           return undefined;
         }
