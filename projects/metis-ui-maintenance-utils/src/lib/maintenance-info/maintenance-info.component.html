@@ -9,13 +9,13 @@
     <div *ngIf="maintenanceInfo.period.from; let periodFrom">
       <b>From:</b>
       <span class="period-value">
-        {{ periodFrom | date: "short" }}
+        {{ periodFrom | date: 'short' }}
       </span>
     </div>
     <div *ngIf="maintenanceInfo.period.to; let periodTo">
       <b>To:</b>
       <span class="period-value">
-        {{ periodTo | date: "short" }}
+        {{ periodTo | date: 'short' }}
       </span>
     </div>
   </ng-container>

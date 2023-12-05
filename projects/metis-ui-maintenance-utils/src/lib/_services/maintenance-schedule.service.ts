@@ -2,11 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of, switchMap, timer } from 'rxjs';
 import {
-  MaintenanceSettings,
-  MaintenanceSchedule,
   MaintenanceItem,
-  MaintenanceScheduleItemKey,
   MaintenancePeriod,
+  MaintenanceSchedule,
+  MaintenanceSettings
 } from '../_models/maintenance';
 
 @Injectable({ providedIn: 'root' })
@@ -40,8 +39,7 @@ export class MaintenanceScheduleService {
   **/
   loadMaintenanceItem(): Observable<MaintenanceItem | undefined> {
     const url = this.settings.maintenanceScheduleUrl;
-    const dataKey = this.settings
-      .maintenanceScheduleKey as MaintenanceScheduleItemKey;
+    const dataKey = this.settings.maintenanceScheduleKey;
 
     if (!(url && dataKey)) {
       return of(undefined);
@@ -54,7 +52,7 @@ export class MaintenanceScheduleService {
         return schedule[dataKey];
       }),
       map((item: MaintenanceItem) => {
-        if (item && item.period && !this.periodIsNow(item.period)) {
+        if (item?.period && !this.periodIsNow(item.period)) {
           this.settings.maintenanceItem.maintenanceMessage = '';
           return undefined;
         }
@@ -67,7 +65,7 @@ export class MaintenanceScheduleService {
       catchError((e: Error) => {
         console.log(e);
         return of(undefined);
-      }),
+      })
     );
   }
 }

@@ -12,9 +12,12 @@
     "build": "rm -rf ./dist && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:dev": "ng test --code-coverage",
     "publish-lib": "npm publish --access=public",
     "prettier": "prettier --write './**/*.{ts,html}'",
-    "prettier:ci": "prettier --list-different './**/*.{ts,html}'"
+    "prettier:ci": "prettier --list-different './**/*.{ts,html}'",
+    "lint": "eslint --ext .ts projects/metis-ui-maintenance-utils --fix",
+    "lint:ci": "eslint --ext .ts projects/metis-ui-maintenance-utils"
   },
   "private": false,
   "dependencies": {
@@ -26,6 +29,7 @@
     "@europeana/metis-ui-maintenance-utils": "^0.0.4",
     "@europeana/metis-ui-test-utils": "^0.0.4",
     "@types/jasmine": "^3.10.2",
+    "eslint": "^8.54.0",
     "prettier": "^3.0.3",
     "rxjs": "^7.5.5",
     "tslib": "^2.3.0",
@@ -37,6 +41,8 @@
     "@angular/compiler-cli": "^16.2.6",
     "@types/jasmine": "^3.10.2",
     "@types/node": "^12.20.37",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "eslint-plugin-rxjs": "^5.0.3",
     "jasmine": "^5.1.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",

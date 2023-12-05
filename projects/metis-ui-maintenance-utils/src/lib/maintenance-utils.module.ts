@@ -9,6 +9,6 @@ import { MaintenanceInfoComponent } from './maintenance-info/maintenance-info.co
   imports: [BrowserModule],
   providers: [MaintenanceScheduleService, MockMaintenanceScheduleService],
   exports: [MaintenanceInfoComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MaintenanceUtilsModule {}
