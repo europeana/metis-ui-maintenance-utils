@@ -10,6 +10,7 @@
   "scripts": {
     "ng": "ng",
     "build": "rm -rf ./dist && ng build",
+    "clean": "rm -rf ./dist && rm -rf ./projects/**/dist && rm -rf ./projects/**/coverage",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:dev": "ng test --code-coverage",
