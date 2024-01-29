@@ -6,8 +6,10 @@ export class MockMaintenanceScheduleService {
     console.log('Mock setApiSettings');
   }
 
-  loadMaintenanceItem(): Observable<string | undefined> {
-    return of('Site is down').pipe(delay(1));
+  loadMaintenanceItem(): Observable<MaintenanceItem | undefined> {
+    return of({
+      maintenanceMessage: 'Site is down'
+    }).pipe(delay(1));
   }
 }
 
