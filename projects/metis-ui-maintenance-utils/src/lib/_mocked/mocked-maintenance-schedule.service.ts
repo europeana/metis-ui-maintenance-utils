@@ -1,5 +1,5 @@
 import { delay, Observable, of } from 'rxjs';
-import { MaintenanceSettings } from '../_models/maintenance';
+import { MaintenanceItem, MaintenanceSettings } from '../_models/maintenance';
 
 export class MockMaintenanceScheduleService {
   setApiSettings(_: MaintenanceSettings): void {
@@ -14,7 +14,7 @@ export class MockMaintenanceScheduleService {
 }
 
 export class MockMaintenanceScheduleServiceEmpty extends MockMaintenanceScheduleService {
-  loadMaintenanceItem(): Observable<string | undefined> {
+  loadMaintenanceItem(): Observable<MaintenanceItem | undefined> {
     return of(undefined).pipe(delay(1));
   }
 }
