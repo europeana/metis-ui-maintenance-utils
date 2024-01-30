@@ -1,11 +1,12 @@
 {
-  "name": "metis-ui-maintenance-utils",
-  "version": "0.0.1",
+  "name": "@europeana/metis-ui-maintenance-utils",
+  "version": "0.0.8",
   "peerDependencies": {
     "@angular/common": "^17.1.1",
     "@angular/core": "^17.1.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "homepage": "https://github.com/europeana/metis-ui-maintenance-utils.git"
 }
