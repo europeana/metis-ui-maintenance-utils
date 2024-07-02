@@ -1,0 +1,41 @@
+name: '* Main'
+run-name: 'Build and Test'
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'branch or tag to build'
+        default: 'develop'
+        type: string
+jobs:
+  run-unit:
+    name: 'tests'
+    uses: ./.github/workflows/run-tests.yaml
+    secrets: inherit
+
+  run-sonar:
+    needs: [run-unit]
+    uses: ./.github/workflows/run-sonar.yaml
+    secrets: inherit
+
+  run-output:
+    needs: [run-sonar]
+    name: 'Print Sonar Report Link'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo -e "| Sonar Report Link |  |\n| --- | --- |\n| See here | https://sonarcloud.io/code?id=europeana_metis-ui-maintenance-utils |\n|" >> $GITHUB_STEP_SUMMARY
+
+  code-format-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag_name }}
+      - name: Run Code Checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.18.0'
+      - run: npm install
+      - run: npm run prettier:ci
+      - run: npm run lint:ci
