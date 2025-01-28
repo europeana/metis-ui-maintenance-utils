@@ -1,9 +1,9 @@
 {
   "name": "@europeana/metis-ui-maintenance-utils",
-  "version": "0.0.12",
+  "version": "18.2.13",
   "peerDependencies": {
-    "@angular/common": "^17.1.1",
-    "@angular/core": "^17.1.1"
+    "@angular/common": "^18.2.13",
+    "@angular/core": "^18.2.13"
   },
   "dependencies": {
     "tslib": "^2.3.0"

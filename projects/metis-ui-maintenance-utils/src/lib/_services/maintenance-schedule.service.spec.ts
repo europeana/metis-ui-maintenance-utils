@@ -1,8 +1,8 @@
 import {
-  HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
+  provideHttpClientTesting
 } from '@angular/common/http/testing';
-import { async, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { MockHttp } from '@europeana/metis-ui-test-utils';
 import {
   MaintenanceItem,
@@ -12,6 +12,10 @@ import {
 } from '../_models/maintenance';
 
 import { MaintenanceScheduleService } from './maintenance-schedule.service';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi
+} from '@angular/common/http';
 
 describe('MaintenanceScheduleService', () => {
   let mockHttp: MockHttp;
@@ -43,14 +47,18 @@ describe('MaintenanceScheduleService', () => {
     };
   };
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MaintenanceScheduleService],
-      imports: [HttpClientTestingModule]
+      imports: [],
+      providers: [
+        MaintenanceScheduleService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+      ]
     }).compileComponents();
     mockHttp = new MockHttp(TestBed.inject(HttpTestingController), '');
     service = TestBed.inject(MaintenanceScheduleService);
-  }));
+  });
 
   afterEach(() => {
     mockHttp.verify();
