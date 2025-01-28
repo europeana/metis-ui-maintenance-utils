@@ -49,7 +49,6 @@ describe('MaintenanceScheduleService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [],
       providers: [
         MaintenanceScheduleService,
         provideHttpClient(withInterceptorsFromDi()),
