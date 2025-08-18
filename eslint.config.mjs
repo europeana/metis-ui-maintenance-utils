@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 });
 
 export default [{
-    ignores: ["**/dist/*", "**/karma.conf.js"],
+    ignores: ["**/dist/*", "**/coverage/*"],
 }, ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"), {
     plugins: {
         "@typescript-eslint": typescriptEslint,
@@ -33,9 +33,9 @@ export default [{
         sourceType: "module",
 
         parserOptions: {
-            project: "/home/andy/git/metis-ui-maintenance-utils/tsconfig.json",
+            project: "./tsconfig.json",
             noWatch: true,
-            tsconfigRootDir: "/home/andy/git/metis-ui-maintenance-utils",
+            tsconfigRootDir: "./",
         },
     },
 

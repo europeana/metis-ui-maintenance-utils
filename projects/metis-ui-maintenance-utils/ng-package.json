@@ -3,8 +3,7 @@
   "dest": "../../dist/metis-ui-maintenance-utils",
   "allowedNonPeerDependencies": [
     "@angular/common",
-    "@angular/core",
-    "jasmine"
+    "@angular/core"
   ],
   "lib": {
     "entryFile": "src/public-api.ts"

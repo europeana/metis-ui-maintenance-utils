@@ -15,7 +15,7 @@ jobs:
       - run: |
           npm run test:dev
       - run: |
-          cp projects/metis-ui-maintenance-utils/coverage/**/lcov.info .
+          cp projects/metis-ui-maintenance-utils/coverage/lcov.info .
       - uses: actions/upload-artifact@master
         with:
           name: appLcov
