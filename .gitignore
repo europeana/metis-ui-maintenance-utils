@@ -6,6 +6,7 @@
 /.angular
 
 # compiled output
+**/coverage
 /dist
 **/dist
 /tmp
