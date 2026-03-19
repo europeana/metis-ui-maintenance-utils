@@ -20,8 +20,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.METIS_FRONTEND_SONAR_TOKEN }}
         with:
-          #    -Dsonar.tests=projects/metis-ui-maintenance-utils/src/lib
-          #    -Dsonar.sources=projects/metis-ui-maintenance-utils/src/lib
           args:
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.organization=europeana
