@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.inputs.tag_name }}
 
@@ -20,8 +20,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.METIS_FRONTEND_SONAR_TOKEN }}
         with:
-          #    -Dsonar.tests=projects/metis-ui-maintenance-utils/src/lib
-          #    -Dsonar.sources=projects/metis-ui-maintenance-utils/src/lib
           args:
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.organization=europeana
